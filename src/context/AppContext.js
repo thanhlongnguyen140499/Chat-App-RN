@@ -7,14 +7,17 @@ export const AppContext = React.createContext({
   setChannel: channel => {},
   thread: null,
   setThread: thread => {},
+  chatClient: null,
+  setChatClient: chatClient => {},
 });
 
 export const AppProvider = ({children}) => {
-  const [channel, setChannel] = useState();
+  const [channel, setChannel] = useState(null);
   const [thread, setThread] = useState();
+  const [chatClient, setChatClient] = useState(null);
 
   return (
-    <AppContext.Provider value={{channel, setChannel, thread, setThread}}>
+    <AppContext.Provider value={{channel, setChannel, thread, setThread, chatClient, setChatClient}}>
       {children}
     </AppContext.Provider>
   );
